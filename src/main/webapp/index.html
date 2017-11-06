@@ -1,0 +1,109 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <base href="./" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>servease</title>
+    <meta name="description" content="">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="manifest" href="manifest.webapp" />
+    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
+    <style>
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                width: 5cm;
+            }
+            
+            .dropbtn:hover, .dropbtn:focus {
+                background-color: #3e8e41;
+            }
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                overflow: auto;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropdown a:hover {background-color: #f1f1f1}
+            
+            .show {display:block;}
+            </style>
+    
+</head>
+<body>
+    <!--[if lt IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <jhi-main>Loading..</jhi-main>
+    <noscript>
+        <h1>You must enable javascript to view this page.</h1>
+    </noscript>
+    <!-- uncomment this for adding service worker
+        <script>
+            if ('serviceWorker' in navigator) {
+                 navigator.serviceWorker
+                    .register('./sw.js')
+                    .then(function() { console.log('Service Worker Registered'); });
+            }
+        </script>
+    -->
+    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>-->
+    
+<script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+        
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+        
+</body>
+</html>

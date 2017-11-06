@@ -1,0 +1,153 @@
+<div class="row">
+    <div[ngSwitch]="isAuthenticated()" class="col-md-3">
+        <div *ngSwitchCase="true">
+            <div *ngIf="in">
+                <!-- <form (ngSubmit)="getCustomer()" #editForm="ngForm">
+                <div class="form-group"></div>-->
+                <label for="name">Enter Customer Id</label>
+
+                <input type="text" class="form-control" id="name" [(ngModel)]="id" required>
+                <br>
+
+                <button type="submit" (click)="getCustomer()" class="btn btn-success">Submit</button>
+            </div>
+            <!-- </form> -->
+            <div *ngIf="customer">
+                <br>
+                <img class="img-thumbnail" [src]="'data:' + customer.profilePicContentType + ';base64,' + customer.profilePic" style="width: 150px; height: 150px;">
+
+                <!-- <input type="text" class="form-control" id="name" [(ngModel)]="cart.customerId" required>
+                 -->
+
+                <h3 style="font-family: Times New Roman;">{{customer.name}}
+                    <h3>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+
+                        <a class="button button5" href="/">New Customer</a>
+
+
+            </div>
+
+        </div>
+
+</div>
+<div class="col-md-9">
+
+
+    <div [ngSwitch]="isAuthenticated()">
+
+        <div class="alert alert-success" *ngSwitchCase="true" style="height: 15cm;">
+
+            <div style="margin: 0.5cm 0cm 0cm 19cm; width: 4cm; background-color: pink;">
+
+                <h2 style="color: #2F4F4F; font-family: Times New Roman; " align="center">Total Amount</h2>
+
+                <h1 align="center" *ngIf="total">{{total}}</h1>
+
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="dropdown" style=" margin: 0cm 0cm 0cm 19cm;">
+                <br>
+                <div *ngIf="paymentOption">
+                    <button onclick="myFunction()" class="dropbtn">Payment</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <button type="submit" class="btn btn-success" (click)="createCashPayment()" style="width:5cm; background-color: #87CEFA;">By Cash</button>
+                        <button type="submit" class="btn btn-success" (click)="createPaypalPayment()" style="width:5cm; background-color: #FFA07A;">By Paypal</button>
+                        <button type="submit" class="btn btn-success" (click)="createCardPayment()" style="width:5cm; background-color: 	#EE82EE;">By Card</button>
+                    </div>
+                </div>
+
+                <h3 style="font-family: Times New Roman;">{{status}}</h3>
+            </div>
+            <table style="width:20%" style="margin: -5cm 0cm 0cm 0cm;" *ngIf="list">
+                <tr>
+                    <th>
+                        <label for="name">Enter Item Name</label>
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" style="width: 5cm;" class="form-control" id="id" [(ngModel)]="productId" required>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <button type="submit" (click)="getProduct()" class="btn btn-success">Submit</button>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td *ngIf="product">
+
+                        <img class="img-thumbnail" [src]="'data:' + product.imageContentType + ';base64,' + product.image" style="width: 150px; height: 150px;">
+
+                        <h3>{{product.name}}</h3>
+                        <h1 style="margin: -1cm 0cm 0cm 2.5cm">*</h1>
+                        <input type="text" style="width: 1cm; margin: -1.2cm 0cm 0cm 3.5cm;" class="form-control" id="name" [(ngModel)]="count" required>
+
+                        <button type="submit" style="background-color: blue;" (click)="cartProduct()" class="btn btn-success">Add to list</button>
+                    </td>
+
+
+                </tr>
+            </table>
+
+
+        </div>
+        <div class="alert alert-success" *ngSwitchCase="true">
+            <table class="t1" style="width:50%" style="margin: -15cm 0cm 0cm 6cm;">
+                <tr>
+                    <th class="th1">
+                        <h2 style="color: #2F4F4F; font-family: Times New Roman;">Product</h2>
+                    </th>
+                    <th class="th1">
+                        <h2 style="color: #2F4F4F; font-family: Times New Roman;">Quantity</h2>
+                    </th>
+                    <th class="th1">
+                        <h2 style="color: #2F4F4F; font-family: Times New Roman;">Amount</h2>
+                    </th>
+
+
+                </tr>
+
+                <tr *ngFor="let cart of !!carts ? carts : null ">
+                    <td class="td1">{{cart.productName}}</td>
+                    <td class="td1">{{cart.quantity}}</td>
+                    <td class="td1">{{cart.quantity*cart.productPrice}}</td>
+
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+        <div class="alert alert-warning" *ngSwitchCase="false">
+            <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
+            <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a>
+            <span jhiTranslate="global.messages.info.authenticated.suffix">, you can try the default accounts:
+                <br/>- Administrator (login="admin" and password="admin")
+                <br/>- User (login="user" and password="user").</span>
+        </div>
+        <div class="alert alert-warning" *ngSwitchCase="false">
+            <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
+            <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+        </div>
+    </div>
+
+
+
+
+</div>
+</div>

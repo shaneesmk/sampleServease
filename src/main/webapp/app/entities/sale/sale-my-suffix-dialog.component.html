@@ -1,0 +1,40 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySaleLabel" jhiTranslate="serveaseApp.sale.home.createOrEditLabel">Create or edit a Sale</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!sale.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="sale.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="serveaseApp.sale.customerName" for="field_customerName">Customer Name</label>
+            <input type="text" class="form-control" name="customerName" id="field_customerName"
+                [(ngModel)]="sale.customerName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="serveaseApp.sale.totalCash" for="field_totalCash">Total Cash</label>
+            <input type="number" class="form-control" name="totalCash" id="field_totalCash"
+                [(ngModel)]="sale.totalCash"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="serveaseApp.sale.paymentType" for="field_paymentType">Payment Type</label>
+            <input type="text" class="form-control" name="paymentType" id="field_paymentType"
+                [(ngModel)]="sale.paymentType"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

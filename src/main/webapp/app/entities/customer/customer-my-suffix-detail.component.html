@@ -1,0 +1,42 @@
+
+<div *ngIf="customer">
+    <h2><span jhiTranslate="serveaseApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="serveaseApp.customer.searchKey">Search Key</span></dt>
+        <dd>
+            <span>{{customer.searchKey}}</span>
+        </dd>
+        <dt><span jhiTranslate="serveaseApp.customer.name">Name</span></dt>
+        <dd>
+            <span>{{customer.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="serveaseApp.customer.profilePic">Profile Pic</span></dt>
+        <dd>
+            <div *ngIf="customer.profilePic">
+                <a (click)="openFile(customer.profilePicContentType, customer.profilePic)">
+                    <img [src]="'data:' + customer.profilePicContentType + ';base64,' + customer.profilePic" style="max-width: 100%;" alt="customer image"/>
+                </a>
+                {{customer.profilePicContentType}}, {{byteSize(customer.profilePic)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="serveaseApp.customer.phone">Phone</span></dt>
+        <dd>
+            <span>{{customer.phone}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer-my-suffix/'+ customer.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

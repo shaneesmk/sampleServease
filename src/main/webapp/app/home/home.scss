@@ -1,0 +1,52 @@
+
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 497px;
+    background: url("../../content/images/hipster.png") no-repeat center top;
+    background-size: contain;
+}
+.button5 {background-color: #555555;} /* Black */
+.button {
+    background-color: #000080; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.t1,
+.th1,
+.td1 {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.th1,
+.td1 {
+    padding: 15px;
+}
+.button2 {background-color: #008CBA;}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+    .hipster {
+        background: url("../../content/images/hipster2x.png") no-repeat center top;
+        background-size: contain;
+    }
+}

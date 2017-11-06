@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "customerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalCash",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "paymentType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171103164547",
+    "entityTableName": "sale",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}
